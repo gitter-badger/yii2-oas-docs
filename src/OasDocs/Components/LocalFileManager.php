@@ -21,7 +21,7 @@ class LocalFileManager implements LocalFileInterface
     {
         $replaceCount = max(0, substr_count($id, '.') - 1);
         if ($replaceCount > 0) {
-            return str_replace('.', '/', $id, $replaceCount);
+            return preg_replace('/\./', '/', $id, $replaceCount);
         }
         return $id;
     }
