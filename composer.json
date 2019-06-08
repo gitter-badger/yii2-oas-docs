@@ -1,0 +1,81 @@
+{
+    "name": "danballance/yii2-oas-docs",
+    "description": "A Yii extension for publishing Open API Specifications",
+    "type": "yii2-extension",
+    "license": "",
+    "support": {
+        "issues": "https://github.com/danballance/yii2-oai-docs/issues?state=open",
+        "forum": "https://gitter.im/danballance/yii2-oai-docs",
+        "source": "https://github.com/danballance/yii2-oai-docs"
+    },
+    "keywords": [
+        "yii",
+        "yii2",
+        "yii 2",
+        "yii framework",
+        "swagger",
+        "oai",
+        "oas",
+        "oas2",
+        "oas3",
+        "open api",
+        "open api initiative",
+        "open api specification",
+        "documentation",
+        "docs",
+        "api docs"
+    ],
+    "authors": [
+        {
+            "name": "Dan Ballance",
+            "email": "work@danballance.uk",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "jshannon63/jsoncollect": "^1.2",
+        "flow/jsonpath": "^0.4.0",
+        "tightenco/collect": "^5.6",
+        "erusev/parsedown": "^1.7",
+        "nicmart/tree": "^0.2.7",
+        "symfony/yaml": "^4.1",
+        "danballance/oas-tools": "@dev",
+        "yiisoft/yii2": "2.0.15.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.4",
+        "phpunit/phpunit": "^8.1",
+        "phpmd/phpmd": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "DanBallance\\OasDocs\\": "./src/OasDocs"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DanBallance\\OasDocs\\": "./src/OasDocs"
+        }
+    },
+    "config": {
+        "preferred-install": {
+            "*": "auto"
+        }
+    },
+    "conflict": {
+
+    },
+    "extra": {
+        "bootstrap": "DanBallance\\OasDocs\\Bootstrap"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}

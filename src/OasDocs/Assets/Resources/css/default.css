@@ -1,0 +1,30 @@
+#OasDocs h2, #OasDocs h3, #OasDocs h4 {
+    color: #204d74;
+}
+#OasDocs h2 {
+    padding: 10px;
+}
+#OasDocs #docsLeft {
+    overflow-x: auto;
+    padding: 10px;
+}
+#OasDocs #docsLeft nav ol {
+    padding-left: 20px;
+}
+#OasDocs #docsLeft nav.table-of-contents li.active a {
+    text-decoration: underline;
+    color: black;
+}
+#OasDocs #docsRight {
+    overflow-x: auto;
+    padding: 10px;
+}
+#OasDocs #docsRight h3 {
+    margin-top: 0px;
+}
+#OasDocs #docsRight h4 {
+    margin-top: 30px;
+}
+#OasDocs #docsRight h4:first-of-type {
+    margin-top: 10px;
+}
