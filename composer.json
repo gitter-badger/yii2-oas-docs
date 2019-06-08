@@ -2,7 +2,7 @@
     "name": "danballance/yii2-oas-docs",
     "description": "A Yii extension for publishing Open API Specifications",
     "type": "yii2-extension",
-    "license": "",
+    "license": "MIT",
     "support": {
         "issues": "https://github.com/danballance/yii2-oai-docs/issues?state=open",
         "forum": "https://gitter.im/danballance/yii2-oai-docs",
