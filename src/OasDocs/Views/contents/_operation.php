@@ -5,7 +5,7 @@ use DanBallance\OasDocs\Widgets\ResponsesTable;
 
 ?>
 <h3><?= $section ?></h3>
-<h4><?= strtoupper($data['method']) . " {$data['path']}" ?></h4>
+<h4>Operation: <?= strtoupper($data['method']) . " {$data['path']}" ?></h4>
 <dl class="">
     <dt>Operation ID</dt>
     <dd><?= $data['operationId'] ?></dd>

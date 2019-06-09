@@ -16,6 +16,23 @@ class ContentsController extends Controller
         return parent::beforeAction($action);
     }
 
+    public function actionIndex()
+    {
+        $toc = $this->getToc(Yii::$app->request->getUrl());
+        $tocArr = $toc->toArray();
+        if (isset($tocArr[0]) && $tocArr[0]['url'] != '#') {
+            $this->redirect($tocArr[0]['url']);
+        }
+        return $this->render(
+            'page',
+            [
+                'partial' => null,
+                'toc' => $this->getToc(Yii::$app->request->getUrl()),
+                'id' => null
+            ]
+        );
+    }
+
     public function actionInfo()
     {
         return $this->render(
@@ -31,6 +48,7 @@ class ContentsController extends Controller
 
     public function actionOperation($id)
     {
+        $id = $this->cleanInput($id);
         return $this->render(
             'page',
             [
@@ -44,6 +62,7 @@ class ContentsController extends Controller
 
     public function actionSchema($id)
     {
+        $id = $this->cleanInput($id);
         // don't recurse into _embedded array when resolving references
         $schema = $this->getDocs()->getSchema($id, true, ['_embedded']);
         $composition = $this->getDocs()->getComposition($id);
@@ -63,6 +82,7 @@ class ContentsController extends Controller
 
     public function actionMarkdown($id)
     {
+        $id = $this->cleanInput($id);
         // don't recurse into _embedded array when resolving references
         $markdown = $this->getDocs()->getMarkdown($id);
         return $this->render(
@@ -78,12 +98,24 @@ class ContentsController extends Controller
         );
     }
 
+    public function actionDownload()
+    {
+        $aliasPath = Yii::$app->getModule('oasDocs')->specification['file'];
+        return Yii::$app->response->sendFile(Yii::getAlias($aliasPath));
+    }
+
+    public function getDownloadLink()
+    {
+        $routePrefix = Yii::$app->getModule('oasDocs')->routePrefix;
+        return "/{$routePrefix}/download";
+    }
+
     protected function getToc(string $currentPage)
     {
         return $this->getDocs()->getToc(
-            $currentPage,
+            $this->cleanInput($currentPage),
             [
-                'groupSchemas' => true
+                'groupSchemas' => Yii::$app->getModule('oasDocs')->groupSchemas
             ]
         );
     }
@@ -99,5 +131,10 @@ class ContentsController extends Controller
         return Yii::$container->get(
             'DanBallance\\OasDocs\\Components\\SpecificationDocsInterface'
         );
+    }
+
+    protected function cleanInput(string $input) : string
+    {
+        return strip_tags(html_entity_decode(urldecode($input)));
     }
 }
