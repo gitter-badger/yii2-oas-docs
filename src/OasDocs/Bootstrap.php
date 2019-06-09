@@ -1,6 +1,8 @@
 <?php namespace DanBallance\OasDocs;
 
+use Yii;
 use yii\base\BootstrapInterface;
+use yii\web\UrlNormalizer;
 use DanBallance\OasDocs\Components\UrlRule;
 
 class Bootstrap implements BootstrapInterface
@@ -8,7 +10,15 @@ class Bootstrap implements BootstrapInterface
     public function bootstrap($app)
     {
         $app->getUrlManager()->enablePrettyUrl = true;
-
+        $app->getUrlManager()->showScriptName = false;
+        $app->getUrlManager()->normalizer = Yii::createObject([
+            'class' => 'yii\web\UrlNormalizer',
+            'action' => function ($route, $normalizer) {
+                return $route;
+            },
+            'collapseSlashes' => true,
+            'normalizeTrailingSlash' => true,
+        ]);
         $app->getUrlManager()->addRules(
             [
                 [
