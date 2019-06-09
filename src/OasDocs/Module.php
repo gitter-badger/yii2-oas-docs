@@ -98,7 +98,7 @@ class Module extends \yii\base\Module
             }
         );
         // UrlMapperInterface
-        $implUrlMapperInterface = $this->implUrlMapperInterface2;
+        $implUrlMapperInterface =  $this->getImpl('implUrlMapperInterface');
         Yii::$container->setSingleton(
             "DanBallance\\OasDocs\\Components\\UrlMapperInterface",
             function (
