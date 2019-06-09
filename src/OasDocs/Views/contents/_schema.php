@@ -18,10 +18,10 @@ use DanBallance\OasDocs\Widgets\Linker;
     </ul>
 <?php endif ?>
 <?php if (isset($data['schema']) && isset($data['schema']['properties'])) : ?>
-<h4>Properties</h4>
-<?= SchemaTable::widget(['rows' => $data['schema']['properties']]) ?>
+    <h4>Properties</h4>
+    <?= SchemaTable::widget(['rows' => $data['schema']['properties']]) ?>
+    <?php foreach (SchemaTable::objects($data['schema']['properties']) as $name => $object) : ?>
+        <h5>&#39;<?= $name ?>&#39; object properties</h5>
+        <?= SchemaTable::widget(['rows' => $object['properties']]) ?>
+    <?php endforeach ?>
 <?php endif ?>
-<?php foreach (SchemaTable::objects($data['schema']['properties']) as $name => $object) : ?>
-<h5>&#39;<?= $name ?>&#39; object properties</h5>
-    <?= SchemaTable::widget(['rows' => $object['properties']]) ?>
-<?php endforeach ?>
