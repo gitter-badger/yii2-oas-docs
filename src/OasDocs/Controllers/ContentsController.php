@@ -16,6 +16,23 @@ class ContentsController extends Controller
         return parent::beforeAction($action);
     }
 
+    public function actionIndex()
+    {
+        $toc = $this->getToc(Yii::$app->request->getUrl());
+        $tocArr = $toc->toArray();
+        if (isset($tocArr[0]) && $tocArr[0]['url'] != '#') {
+            $this->redirect($tocArr[0]['url']);
+        }
+        return $this->render(
+            'page',
+            [
+                'partial' => null,
+                'toc' => $this->getToc(Yii::$app->request->getUrl()),
+                'id' => null
+            ]
+        );
+    }
+
     public function actionInfo()
     {
         return $this->render(
