@@ -83,7 +83,7 @@ class ContentsController extends Controller
         return $this->getDocs()->getToc(
             $currentPage,
             [
-                'groupSchemas' => true
+                'groupSchemas' => Yii::$app->getModule('oasDocs')->groupSchemas
             ]
         );
     }

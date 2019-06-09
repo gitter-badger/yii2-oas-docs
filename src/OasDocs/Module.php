@@ -14,6 +14,7 @@ class Module extends \yii\base\Module
     public $version = 2;
     public $controllerNamespace = "DanBallance\\OasDocs\Controllers";
     public $routePrefix = 'docs';
+    public $groupSchemas = false;
 
     // schema location (file path or network URL)
     public $specification = [];
