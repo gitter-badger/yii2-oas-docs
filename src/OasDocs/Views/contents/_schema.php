@@ -5,7 +5,7 @@ use DanBallance\OasDocs\Widgets\Linker;
 
 ?>
 <h3><?= $section ?></h3>
-<h4><?= $id ?></h4>
+<h4>Schema: <?= $id ?></h4>
 <?php if ($description = $data['schema']['description'] ?? null) : ?>
     <?= $description ?>
 <?php endif ?>
@@ -22,6 +22,6 @@ use DanBallance\OasDocs\Widgets\Linker;
 <?= SchemaTable::widget(['rows' => $data['schema']['properties']]) ?>
 <?php endif ?>
 <?php foreach (SchemaTable::objects($data['schema']['properties']) as $name => $object) : ?>
-<h4>&#39;<?= $name ?>&#39; object properties</h4>
+<h5>&#39;<?= $name ?>&#39; object properties</h5>
     <?= SchemaTable::widget(['rows' => $object['properties']]) ?>
 <?php endforeach ?>
