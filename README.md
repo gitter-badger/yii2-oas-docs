@@ -1,5 +1,7 @@
 # OAS Tools
 
+[![Join the chat at https://gitter.im/yii2-oas-docs/community](https://badges.gitter.im/yii2-oas-docs/community.svg)](https://gitter.im/yii2-oas-docs/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![Travis (.org)](https://img.shields.io/travis/danballance/yii2-oas-docs.svg)
 
 Yii2 OAS Docs is an extension for the Yii framework that generates online documentation 
