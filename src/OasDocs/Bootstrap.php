@@ -46,6 +46,11 @@ class Bootstrap implements BootstrapInterface
                     'pattern' => "/docs/info",
                     'route' => '/oasDocs/contents/info'
                 ],
+                [
+                    'class' => 'DanBallance\OasDocs\Components\DocsUrlRule',
+                    'pattern' => "/docs/download",
+                    'route' => '/oasDocs/contents/download'
+                ]
             ],
             false
         );

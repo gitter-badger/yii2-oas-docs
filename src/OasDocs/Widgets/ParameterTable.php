@@ -38,7 +38,7 @@ class ParameterTable extends Table
         if ($value = $row['type'] ?? null) {
             return $value;
         }
-        if (isset($row['schema'])) {
+        if (isset($row['schema']) && isset($row['schema']['$ref'])) {
             return Linker::widget(['text' => $row['schema']['$ref']]);
         }
     }
